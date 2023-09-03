@@ -55,6 +55,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# If keys exist they should be deleted
 	for KEY in "${KEYS[@]}"; do
 		usdxd keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO --home "$HOMEDIR" 
+### You can set your address in this line for validataor. can u see?yes ok
 	done
 
 	# Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
@@ -114,6 +115,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Allocate genesis accounts (cosmos formatted addresses)
 	for KEY in "${KEYS[@]}"; do
 		usdxd add-genesis-account $KEY 7770000000000000000000000ausdx --keyring-backend $KEYRING --home "$HOMEDIR"
+		#Here you can reset token ampount. can u see?yes ok
 		# usdxd add-genesis-account $KEY 7770000000000000000000000ausdx --keyring-backend $KEYRING --home "$HOMEDIR"
 	done
 
@@ -143,4 +145,4 @@ fi
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
 #usdxd start --pruning=nothing "$TRACE" --gas-prices 0.00001ausdx --gas-adjustment 1.3 --log_level $LOGLEVEL --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable --home "$HOMEDIR"
-usdxd start --pruning=nothing "$TRACE" --rpc.laddr tcp://0.0.0.0:26657 --gas-prices 0.00001ausdx --gas-adjustment 1.3 --log_level $LOGLEVEL --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable --home "$HOMEDIR"
+# usdxd start --pruning=nothing "$TRACE" --rpc.laddr tcp://0.0.0.0:26657 --gas-prices 0.00001ausdx --gas-adjustment 1.3 --log_level $LOGLEVEL --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable --home "$HOMEDIR"
