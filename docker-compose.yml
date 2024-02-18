@@ -7,9 +7,9 @@ services:
     ports:
       - "26656-26657:26656-26657"
     volumes:
-      - ./build/node0/usdxd:/evmos:Z
+      - ./build/node0/volleyd:/evmos:Z
     command:
-      - /usdxd start --home /evmos
+      - /volleyd start --home /evmos
     networks:
       localnet:
         ipv4_address: 192.167.10.2
@@ -20,9 +20,9 @@ services:
     ports:
       - "26659-26660:26656-26657"
     volumes:
-      - ./build/node1/usdxd:/evmos:Z
+      - ./build/node1/volleyd:/evmos:Z
     command:
-      - /usdxd start --home /evmos
+      - /volleyd start --home /evmos
     networks:
       localnet:
         ipv4_address: 192.167.10.3
@@ -33,9 +33,9 @@ services:
     ports:
       - "26661-26662:26656-26657"
     volumes:
-      - ./build/node2/usdxd:/evmos:Z
+      - ./build/node2/volleyd:/evmos:Z
     command:
-      - /usdxd start --home /evmos
+      - /volleyd start --home /evmos
     networks:
       localnet:
         ipv4_address: 192.167.10.4
@@ -46,9 +46,9 @@ services:
     ports:
       - "26663-26664:26656-26657"
     volumes:
-      - ./build/node3/usdxd:/evmos:Z
+      - ./build/node3/volleyd:/evmos:Z
     command:
-      - /usdxd start --home /evmos
+      - /volleyd start --home /evmos
     networks:
       localnet:
         ipv4_address: 192.167.10.5

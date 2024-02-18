@@ -68,55 +68,55 @@ make localnet-stop
 ### Configuration
 
 The `make localnet-start` creates files for a 4-node testnet in `./build` by
-calling the `usdxd testnet` command. This outputs a handful of files in the
+calling the `volleyd testnet` command. This outputs a handful of files in the
 `./build` directory:
 
 ```bash
 tree -L 3 build/
 
 build/
-├── usdxd
-├── usdxd
+├── volleyd
+├── volleyd
 ├── gentxs
 │   ├── node0.json
 │   ├── node1.json
 │   ├── node2.json
 │   └── node3.json
 ├── node0
-│   ├── usdxd
+│   ├── volleyd
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── usdxd
+│   └── volleyd
 │       ├── config
 │       ├── data
-│       └── usdxd.log
+│       └── volleyd.log
 ├── node1
-│   ├── usdxd
+│   ├── volleyd
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── usdxd
+│   └── volleyd
 │       ├── config
 │       ├── data
-│       └── usdxd.log
+│       └── volleyd.log
 ├── node2
-│   ├── usdxd
+│   ├── volleyd
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── usdxd
+│   └── volleyd
 │       ├── config
 │       ├── data
-│       └── usdxd.log
+│       └── volleyd.log
 └── node3
-    ├── usdxd
+    ├── volleyd
     │   ├── key_seed.json
     │   └── keyring-test-cosmos
-    └── usdxd
+    └── volleyd
         ├── config
         ├── data
-        └── usdxd.log
+        └── volleyd.log
 ```
 
-Each `./build/nodeN` directory is mounted to the `/usdxd` directory in each container.
+Each `./build/nodeN` directory is mounted to the `/volleyd` directory in each container.
 
 ### Logging
 
@@ -124,10 +124,10 @@ In order to see the logs of a particular node you can use the following command:
 
 ```bash
 # node 0: daemon logs
-docker exec composednode0 tail usdxd.log
+docker exec composednode0 tail volleyd.log
 
 # node 0: REST & RPC logs
-docker exec composednode0 tail usdxd.log
+docker exec composednode0 tail volleyd.log
 ```
 
 The logs for the daemon will look like:
@@ -192,18 +192,18 @@ Additional instructions on how to interact with the WebSocket can be found on th
 
 ### Keys & Accounts
 
-To interact with `usdxd` and start querying state or creating txs, you use the
-`usdxd` directory of any given node as your `home`, for example:
+To interact with `volleyd` and start querying state or creating txs, you use the
+`volleyd` directory of any given node as your `home`, for example:
 
 ```bash
-usdxd keys list --home ./build/node0/usdxd
+volleyd keys list --home ./build/node0/volleyd
 ```
 
 Now that accounts exists, you may create new accounts and send those accounts
 funds!
 
 ::: tip
-**Note**: Each node's seed is located at `./build/nodeN/usdxd/key_seed.json` and can be restored to the CLI using the `usdxd keys add --restore` command
+**Note**: Each node's seed is located at `./build/nodeN/volleyd/key_seed.json` and can be restored to the CLI using the `volleyd keys add --restore` command
 :::
 
 ### Special Binaries

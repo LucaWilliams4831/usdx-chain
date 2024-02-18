@@ -34,7 +34,7 @@ archived [9001-1 mainnet](https://github.com/evmos/mainnet/tree/main/evmos_9001-
 To access snapshots and archives, follow the process below (this code snippet is to access a snapshot of the current network, `evmos_9001-2`, from Nodes Guru):
 
 ```bash
-cd $HOME/.usdxd/data
+cd $HOME/.volleyd/data
 wget https://snapshots.nodes.guru/evmos_9001-2/evmos_9001-2-410819.tar
 tar xf evmos_9001-2-410819.tar
 ```
@@ -54,7 +54,7 @@ go install -tags pebbledb -ldflags "-w -s -X github.com/cosmos/cosmos-sdk/types.
 Download snapshot:
 
 ```bash
-cd $HOME/.usdxd/
+cd $HOME/.volleyd/
 URL_SNAPSHOT="https://snapshot.notional.ventures/evmos/data_20221024_193254.tar.gz"
 wget -O - "$URL_SNAPSHOT" |tar -xzf -
 ```
@@ -64,7 +64,7 @@ Start:
 Set `db_backend = "pebbledb"` in `config.toml` or start with `--db_backend=pebbledb`
 
 ```bash
-usdxd start --db_backend=pebbledb
+volleyd start --db_backend=pebbledb
 ```
 
 **Note**: use this [workaround](https://github.com/notional-labs/cosmosia/blob/main/docs/pebbledb.md) when upgrading a node running PebbleDB.

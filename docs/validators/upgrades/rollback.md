@@ -8,8 +8,8 @@ Learn how to rollback the chain version in the case of an unsuccessful chain upg
 
 In order to restore a previous chain version, the following data must be recovered by validators:
 
-- the database that contains the state of the previous chain (in `~/.usdxd/data` by default)
-- the `priv_validator_state.json` file of the validator (also in `~/.usdxd/data` by default)
+- the database that contains the state of the previous chain (in `~/.volleyd/data` by default)
+- the `priv_validator_state.json` file of the validator (also in `~/.volleyd/data` by default)
 
 If validators don't possess their database data, another validator should share a copy of the database. Validators will be able to download a copy of the data and verify it before starting their node. If validators don't have the backup `priv_validator_state.json` file, then those validators will not have double-sign protection on their first block.
 
@@ -17,12 +17,12 @@ If validators don't possess their database data, another validator should share 
 
 1. First, stop your node.
 
-2. Then, copy the contents of your backup data directory back to the `$EVMOS_HOME/data` directory (which, by default, should be `~/.usdxd/data`).
+2. Then, copy the contents of your backup data directory back to the `$EVMOS_HOME/data` directory (which, by default, should be `~/.volleyd/data`).
 
 ```bash
 # Assumes backup is stored in "backup" directory
-rm -rf ~/.usdxd/data
-mv backup/.usdxd/data ~/.usdxd/data
+rm -rf ~/.volleyd/data
+mv backup/.volleyd/data ~/.volleyd/data
 ```
 
 3. Next, install the previous version of Evmos.
@@ -32,11 +32,11 @@ mv backup/.usdxd/data ~/.usdxd/data
 git checkout <prev_version>
 make install
 ## verify version
-usdxd version --long
+volleyd version --long
 ```
 
 4. Finally, start the node.
 
 ```bash
-usdxd start
+volleyd start
 ```

@@ -13,20 +13,20 @@ The keyring holds the private/public keypairs used to interact with the node. Fo
 You can use the following commands for help with the `keys` command and for more information about a particular subcommand, respectively:
 
 ```bash
-usdxd keys
+volleyd keys
 ```
 
 ```bash
-usdxd keys [command] --help
+volleyd keys [command] --help
 ```
 
 To create a new key in the keyring, run the `add` subcommand with a `<key_name>` argument. You will have to provide a password for the newly generated key. This key will be used in the next section.
 
 ```bash
-usdxd keys add dev0
+volleyd keys add dev0
 
 # Put the generated address in a variable for later use.
-MY_VALIDATOR_ADDRESS=$(usdxd keys show dev0 -a)
+MY_VALIDATOR_ADDRESS=$(volleyd keys show dev0 -a)
 ```
 
 This command generates a new 24-word mnemonic phrase, persists it to the relevant backend, and outputs information about the keypair. If this keypair will be used to hold value-bearing tokens, be sure to write down the mnemonic phrase somewhere safe!
@@ -80,10 +80,10 @@ for multiple prompts:
 
 ```bash
 # assuming that KEYPASSWD is set in the environment
-yes $KEYPASSWD | usdxd keys add me
-yes $KEYPASSWD | usdxd keys show me
-# start usdxd with keyring-backend flag
-usdxd --keyring-backend=file start
+yes $KEYPASSWD | volleyd keys add me
+yes $KEYPASSWD | volleyd keys show me
+# start volleyd with keyring-backend flag
+volleyd --keyring-backend=file start
 ```
 
 ::: tip

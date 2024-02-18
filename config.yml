@@ -1,18 +1,18 @@
 accounts:
   - name: alice
-    coins: ["100000000uusdx", "10000000000000000000uMGT"]
+    coins: ["100000000uvolley", "10000000000000000000uMGT"]
   - name: bob
-    coins: ["5000000000000uusdx"]
+    coins: ["5000000000000uvolley"]
 validator:
   name: alice
-  staked: "100000000000000000000uusdx"
+  staked: "100000000000000000000uvolley"
 faucet:
   name: bob 
-  coins: ["10uusdx"]
+  coins: ["10uvolley"]
 build:
-  binary: "usdxd"
+  binary: "volleyd"
 init:
-  home: "$HOME/.usdxd"
+  home: "$HOME/.volleyd"
   app:
     evm-rpc:
       address: "0.0.0.0:8545"     # change the JSON-RPC address and port
@@ -22,18 +22,18 @@ genesis:
   app_state:
     staking:
       params:
-        bond_denom: "uusdx"
+        bond_denom: "uvolley"
     mint:
       params:
-        mint_denom: "uusdx"
+        mint_denom: "uvolley"
     crisis:
       constant_fee:
-        denom: "uusdx"
+        denom: "uvolley"
     gov:
       deposit_params:
         min_deposit:
           - amount: "10000000"
-            denom: "uusdx"
+            denom: "uvolley"
     evm:
       params:
-        evm_denom: "uusdx"
+        evm_denom: "uvolley"

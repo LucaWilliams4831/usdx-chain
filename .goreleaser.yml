@@ -3,9 +3,9 @@ before:
   - go mod download
 
 builds:
-  - id: "usdxd-darwin"
-    main: ./cmd/usdxd
-    binary: bin/usdxd
+  - id: "volleyd-darwin"
+    main: ./cmd/volleyd
+    binary: bin/volleyd
     env:
       - CGO_ENABLED=1
       - CC=o64-clang
@@ -17,10 +17,10 @@ builds:
     flags:
         - -tags=cgo
     ldflags:
-      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=usdxd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
-  - id: "usdxd-darwin-arm64"
-    main: ./cmd/usdxd
-    binary: bin/usdxd
+      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=volleyd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
+  - id: "volleyd-darwin-arm64"
+    main: ./cmd/volleyd
+    binary: bin/volleyd
     env:
       - CGO_ENABLED=1
       - CC=oa64-clang
@@ -32,10 +32,10 @@ builds:
     flags:
       - -tags=cgo
     ldflags:
-      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=usdxd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
-  - id: "usdxd-linux"
-    main: ./cmd/usdxd
-    binary: bin/usdxd
+      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=volleyd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
+  - id: "volleyd-linux"
+    main: ./cmd/volleyd
+    binary: bin/volleyd
     env:
       - CGO_ENABLED=1
       - CC=gcc
@@ -47,10 +47,10 @@ builds:
     flags:
       - -tags=cgo
     ldflags:
-      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=usdxd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
-  - id: "usdxd-linux-arm64"
-    main: ./cmd/usdxd
-    binary: bin/usdxd
+      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=volleyd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
+  - id: "volleyd-linux-arm64"
+    main: ./cmd/volleyd
+    binary: bin/volleyd
     env:
       - CGO_ENABLED=1
       - CC=aarch64-linux-gnu-gcc
@@ -62,10 +62,10 @@ builds:
     flags:
       - -tags=cgo
     ldflags:
-      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=usdxd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
-  - id: "usdxd-windows"
-    main: ./cmd/usdxd
-    binary: bin/usdxd
+      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=volleyd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
+  - id: "volleyd-windows"
+    main: ./cmd/volleyd
+    binary: bin/volleyd
     env:
       - CGO_ENABLED=1
       - CC=x86_64-w64-mingw32-gcc
@@ -78,7 +78,7 @@ builds:
       - -tags=cgo
       - -buildmode=exe
     ldflags:
-      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=usdxd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
+      - -s -w -X github.com/cosmos/cosmos-sdk/version.Name=evmos -X github.com/cosmos/cosmos-sdk/version.AppName=volleyd -X github.com/cosmos/cosmos-sdk/version.Version={{.Version}} -X github.com/cosmos/cosmos-sdk/version.Commit={{.Commit}}
 
 archives:
 - name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
@@ -90,11 +90,11 @@ archives:
     - goos: windows
       format: zip
   builds:
-  - usdxd-darwin
-  - usdxd-darwin-arm64
-  - usdxd-windows
-  - usdxd-linux
-  - usdxd-linux-arm64
+  - volleyd-darwin
+  - volleyd-darwin-arm64
+  - volleyd-windows
+  - volleyd-linux
+  - volleyd-linux-arm64
   
 checksum:
   name_template: 'checksums.txt'

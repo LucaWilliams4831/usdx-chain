@@ -31,7 +31,7 @@ You can register a contract by signing a transaction with the address that origi
 
 ```bash
 # Register a revenue for your contract
-usdxd tx revenue register $CONTRACT $NONCE $WITHDRAWER \
+volleyd tx revenue register $CONTRACT $NONCE $WITHDRAWER \
 --from=dev0 \ # contract deployer key
 --gas=700000 --gas-prices=10000pose \ # can vary depending on the network
 ```
@@ -40,7 +40,7 @@ After your transaction is submitted successfully, you can query your `revenue` w
 
 ```bash
 # Check revenues
-usdxd q revenue contract $CONTRACT
+volleyd q revenue contract $CONTRACT
 ```
 
 Congrats ☄️☄️☄️ Now that you've registered a revenue for your contract, it is part of the Evmos dApp store and you will receive a cut of the transaction fees every time a user interacts with your contract. If you wondering how large your cut is, have a look at the [revenue parameter `DeveloperShares`](../../../x/revenue/spec/07_parameters.md#developer-shares-amount), which is controlled through governance. You can query the parameters using our [OpenAPI documentation](https://api.evmos.org).
@@ -57,7 +57,7 @@ Registered contracts can also be updated. To update the withdrawer address of yo
 
 ```bash
 # Update withdrawer for your contract
-usdxd tx revenue update $CONTRACT $WITHDRAWER \
+volleyd tx revenue update $CONTRACT $WITHDRAWER \
 --gas=700000 --gas-prices=10000pose \
 --from=mm
 ```
@@ -70,7 +70,7 @@ Revenues can also be canceled. In order to stop receiving transaction fees for i
 
 ```bash
 # Cancel revenue for your contract
-usdxd tx revenue cancel $CONTRACT \
+volleyd tx revenue cancel $CONTRACT \
 --gas=700000 --gas-prices=10000pose \
 --from=mm
 ```

@@ -50,7 +50,7 @@ func (k Keeper) AfterProposalVote(ctx sdk.Context, proposalID uint64, voterAddr 
 		return
 	}
 
-	_, err := k.ClaiusdxsForAction(ctx, voterAddr, claimsRecord, types.ActionVote, params)
+	_, err := k.ClaivolleysForAction(ctx, voterAddr, claimsRecord, types.ActionVote, params)
 	if err != nil {
 		k.Logger(ctx).Error(
 			"failed to claim Vote action",
@@ -79,7 +79,7 @@ func (k Keeper) AfterDelegationModified(ctx sdk.Context, delAddr sdk.AccAddress,
 		return nil
 	}
 
-	_, err := k.ClaiusdxsForAction(ctx, delAddr, claimsRecord, types.ActionDelegate, params)
+	_, err := k.ClaivolleysForAction(ctx, delAddr, claimsRecord, types.ActionDelegate, params)
 	if err != nil {
 		k.Logger(ctx).Error(
 			"failed to claim Delegation action",
@@ -110,7 +110,7 @@ func (k Keeper) PostTxProcessing(ctx sdk.Context, msg core.Message, receipt *eth
 		return nil
 	}
 
-	_, err := k.ClaiusdxsForAction(ctx, fromAddr, claimsRecord, types.ActionEVM, params)
+	_, err := k.ClaivolleysForAction(ctx, fromAddr, claimsRecord, types.ActionEVM, params)
 	if err != nil {
 		k.Logger(ctx).Error(
 			"failed to claim EVM action",

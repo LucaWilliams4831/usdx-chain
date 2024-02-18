@@ -109,7 +109,7 @@ import (
 	"github.com/evmos/ethermint/x/feemarket"
 	feemarketkeeper "github.com/evmos/ethermint/x/feemarket/keeper"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
-
+	
 	// unnamed import of statik for swagger UI support
 	_ "github.com/evmos/evmos/v10/client/docs/statik"
 
@@ -150,6 +150,9 @@ import (
 	// NOTE: override ICS20 keeper to support IBC transfers of ERC20 tokens
 	"github.com/evmos/evmos/v10/x/ibc/transfer"
 	transferkeeper "github.com/evmos/evmos/v10/x/ibc/transfer/keeper"
+	"math/big"
+
+	sdkmath "cosmossdk.io/math"
 )
 
 func init() {
@@ -158,10 +161,11 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".usdxd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".volleyd")
 
 	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
-	sdk.DefaultPowerReduction = ethermint.PowerReduction
+	sdk.DefaultPowerReduction = sdkmath.NewIntFromBigInt(new(big.Int).Exp(big.NewInt(1), big.NewInt(1), nil))
+	fmt.Println("******** default Power Reduction ***************", sdk.DefaultPowerReduction)
 	// modify fee market parameter defaults through global
 	feemarkettypes.DefaultMinGasPrice = MainnetMinGasPrices
 	feemarkettypes.DefaultMinGasMultiplier = MainnetMinGasMultiplier
@@ -170,7 +174,7 @@ func init() {
 }
 
 // Name defines the application binary name
-const Name = "usdxd"
+const Name = "volleyd"
 
 var (
 	// DefaultNodeHome default home directories for the application daemon

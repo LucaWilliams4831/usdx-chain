@@ -149,9 +149,9 @@ func (m *Manager) WaitForHeight(ctx context.Context, height int) error {
 	}
 }
 
-// Makes system call to current node container environment with usdxd cli command to get current block height
+// Makes system call to current node container environment with volleyd cli command to get current block height
 func (m *Manager) nodeHeight(ctx context.Context) (int, error) {
-	exec, err := m.CreateExec([]string{"usdxd", "q", "block"}, m.ContainerID())
+	exec, err := m.CreateExec([]string{"volleyd", "q", "block"}, m.ContainerID())
 	if err != nil {
 		return 0, fmt.Errorf("create exec error: %w", err)
 	}

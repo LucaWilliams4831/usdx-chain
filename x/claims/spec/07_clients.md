@@ -8,7 +8,7 @@ A user can query the `x/claims` module using the CLI, gRPC or REST.
 
 ## CLI
 
-Find below a list of `usdxd` commands added with the `x/claims` module. You can obtain the full list by using the `usdxd -h` command.
+Find below a list of `volleyd` commands added with the `x/claims` module. You can obtain the full list by using the `volleyd -h` command.
 
 ### Queries
 
@@ -19,7 +19,7 @@ The `query` commands allow users to query `claims` state.
 Allows users to query total amount of unclaimed tokens from the airdrop.
 
 ```bash
-usdxd query claims total-unclaimed [flags]
+volleyd query claims total-unclaimed [flags]
 ```
 
 **`records`**
@@ -27,7 +27,7 @@ usdxd query claims total-unclaimed [flags]
 Allows users to query all the claims records available.
 
 ```bash
-usdxd query claims records [flags]
+volleyd query claims records [flags]
 ```
 
 **`record`**
@@ -35,7 +35,7 @@ usdxd query claims records [flags]
 Allows users to query a claims record for a given user.
 
 ```bash
-usdxd query claims record ADDRESS [flags]
+volleyd query claims record ADDRESS [flags]
 ```
 
 **`params`**
@@ -43,7 +43,7 @@ usdxd query claims record ADDRESS [flags]
 Allows users to query claims params.
 
 ```bash
-usdxd query claims params [flags]
+volleyd query claims params [flags]
 ```
 
 ## gRPC

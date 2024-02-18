@@ -58,7 +58,7 @@ func (suite KeeperTestSuite) TestRegisterIncentive() {
 				err := suite.app.BankKeeper.MintCoins(
 					suite.ctx,
 					types.ModuleName,
-					sdk.Coins{sdk.NewInt64Coin(denousdx, 1)},
+					sdk.Coins{sdk.NewInt64Coin(denovolley, 1)},
 				)
 				suite.Require().NoError(err)
 
@@ -77,7 +77,7 @@ func (suite KeeperTestSuite) TestRegisterIncentive() {
 				err := suite.app.BankKeeper.MintCoins(
 					suite.ctx,
 					types.ModuleName,
-					sdk.Coins{sdk.NewInt64Coin(denousdx, 1)},
+					sdk.Coins{sdk.NewInt64Coin(denovolley, 1)},
 				)
 				suite.Require().NoError(err)
 
@@ -91,14 +91,14 @@ func (suite KeeperTestSuite) TestRegisterIncentive() {
 					suite.ctx,
 					contract2,
 					sdk.DecCoins{
-						sdk.NewDecCoinFromDec(denousdx, sdk.NewDecWithPrec(100, 2)),
+						sdk.NewDecCoinFromDec(denovolley, sdk.NewDecWithPrec(100, 2)),
 					},
 					epochs,
 				)
 				suite.Require().NoError(err)
 				suite.Commit()
 			},
-			[]sdk.DecCoin{sdk.NewDecCoinFromDec(denousdx, sdk.NewDecWithPrec(100, 2))},
+			[]sdk.DecCoin{sdk.NewDecCoinFromDec(denovolley, sdk.NewDecWithPrec(100, 2))},
 			false,
 		},
 		{
@@ -108,7 +108,7 @@ func (suite KeeperTestSuite) TestRegisterIncentive() {
 				err := suite.app.BankKeeper.MintCoins(
 					suite.ctx,
 					types.ModuleName,
-					sdk.Coins{sdk.NewInt64Coin(denousdx, 1)},
+					sdk.Coins{sdk.NewInt64Coin(denovolley, 1)},
 				)
 				suite.Require().NoError(err)
 			},

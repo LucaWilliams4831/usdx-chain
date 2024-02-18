@@ -1,4 +1,4 @@
-# usdx-evm Docs
+# volley-evm Docs
 
 
 ### Ports 
@@ -13,13 +13,13 @@
 
 ### Chain details
 
-- Network name: usdx Network
+- Network name: volley Network
 - chainId: 323
-- Symbol: usdx
+- Symbol: volley
 - RPC: rpc1.m20chain.com
 - Explorer: explorer.m20chain.com
 
-# usdxchain deployment script
+# volleychain deployment script
 
 ```
 sudo apt update
@@ -44,7 +44,7 @@ go version
 ## Install the executables
 
 ```
-sudo rm -rf ~/.usdx
+sudo rm -rf ~/.volley
 make install
 
 clear
@@ -52,15 +52,15 @@ clear
 ## Running chain
 ./local.sh
 
-## Create the service file "/etc/systemd/system/usdxd.service" with the following content
+## Create the service file "/etc/systemd/system/volleyd.service" with the following content
 ```
-sudo nano /etc/systemd/system/usdxd.service
+sudo nano /etc/systemd/system/volleyd.service
 ```
 
 ## paste following content
 ```
 [Unit]
-Description=usdxd
+Description=volleyd
 Requires=network-online.target
 After=network-online.target
 
@@ -69,12 +69,12 @@ Restart=on-failure
 RestartSec=3
 User=root
 Group=root
-Environment=DAEMON_NAME=usdxd
-Environment=DAEMON_HOME=/root/.usdx
+Environment=DAEMON_NAME=volleyd
+Environment=DAEMON_HOME=/root/.volley
 Environment=DAEMON_ALLOW_DOWNLOAD_BINARIES=on
 Environment=DAEMON_RESTART_AFTER_UPGRADE=on
 PermissionsStartOnly=true
-ExecStart=/root/go/bin/usdx start --pruning="nothing"
+ExecStart=/root/go/bin/volley start --pruning="nothing"
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
 LimitNOFILE=4096
@@ -83,14 +83,14 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 ## start chain node ##
 ```
-sudo systemctl enable usdxd
-sudo systemctl start usdxd
+sudo systemctl enable volleyd
+sudo systemctl start volleyd
 ```
 ## stop chain node ##
 ```
-sudo systemctl stop usdxd
+sudo systemctl stop volleyd
 ```
-# Adding usdx chain on Metamask
+# Adding volley chain on Metamask
 ## on metamask
 ![Click Add Network button ](assets/1.png)
 ![Click Add Network button ](assets/2.png)

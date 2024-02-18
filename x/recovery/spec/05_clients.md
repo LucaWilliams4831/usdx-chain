@@ -8,7 +8,7 @@ A user can query the `x/recovery` module using the CLI, gRPC or REST.
 
 ## CLI
 
-Find below a list of `usdxd` commands added with the `x/recovery` module. You can obtain the full list by using the `usdxd` -h command.
+Find below a list of `volleyd` commands added with the `x/recovery` module. You can obtain the full list by using the `volleyd` -h command.
 
 ### Queries
 
@@ -18,7 +18,7 @@ The query commands allow users to query Recovery state.
 Allows users to query the module parameters.
 
 ```bash
-usdxd query recovery params [flags]
+volleyd query recovery params [flags]
 ```
 
 ## gRPC

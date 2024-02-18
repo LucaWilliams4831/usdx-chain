@@ -6,10 +6,10 @@ order: 8
 
 ## CLI
 
-Find below a list of  `usdxd` commands added with the  `x/erc20` module. You can obtain the full list by using the `usdxd -h` command. A CLI command can look like this:
+Find below a list of  `volleyd` commands added with the  `x/erc20` module. You can obtain the full list by using the `volleyd -h` command. A CLI command can look like this:
 
 ```bash
-usdxd query erc20 params
+volleyd query erc20 params
 ```
 
 ### Queries
@@ -36,7 +36,7 @@ The `tx gov submit-proposal` commands allow users to query create a proposal usi
 Allows users to submit a `RegisterCoinProposal`. Submit a proposal to register a Cosmos coin to the erc20 along with an initial deposit. Upon passing, the proposal details must be supplied via a JSON file.
 
 ```bash
-usdxd tx gov submit-proposal register-coin METADATA_FILE [flags]
+volleyd tx gov submit-proposal register-coin METADATA_FILE [flags]
 ```
 
 Where METADATA_FILE contains (example):
@@ -71,7 +71,7 @@ Where METADATA_FILE contains (example):
 Allows users to submit a `RegisterERC20Proposal`. Submit a proposal to register ERC20 tokens along with an initial deposit. To register multiple tokens in one proposal pass them after each other e.g. `register-erc20 <contract-address1> <contract-address2>`.
 
 ```bash
-usdxd tx gov submit-proposal register-erc20 ERC20_ADDRESS... [flags]
+volleyd tx gov submit-proposal register-erc20 ERC20_ADDRESS... [flags]
 ```
 
 **`toggle-token-conversion`**
@@ -79,7 +79,7 @@ usdxd tx gov submit-proposal register-erc20 ERC20_ADDRESS... [flags]
 Allows users to submit a `ToggleTokenConversionProposal`.
 
 ```bash
-usdxd tx gov submit-proposal toggle-token-conversion TOKEN [flags]
+volleyd tx gov submit-proposal toggle-token-conversion TOKEN [flags]
 ```
 
 **`param-change`**
@@ -87,7 +87,7 @@ usdxd tx gov submit-proposal toggle-token-conversion TOKEN [flags]
 Allows users to submit a `ParameterChangeProposal``.
 
 ```bash
-usdxd tx gov submit-proposal param-change PROPOSAL_FILE [flags]
+volleyd tx gov submit-proposal param-change PROPOSAL_FILE [flags]
 ```
 
 ## gRPC

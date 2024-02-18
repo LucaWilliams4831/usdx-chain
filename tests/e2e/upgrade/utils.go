@@ -63,7 +63,7 @@ func (m *Manager) RetrieveUpgradesList() ([]string, error) {
 	return versions, nil
 }
 
-// ExportState executes the  'docker cp' command to copy container .usdxd dir
+// ExportState executes the  'docker cp' command to copy container .volleyd dir
 // to the specified target dir (local)
 //
 // See https://docs.docker.com/engine/reference/commandline/cp/
@@ -72,7 +72,7 @@ func (m *Manager) ExportState(targetDir string) error {
 	cmd := exec.Command(
 		"docker",
 		"cp",
-		fmt.Sprintf("%s:/root/.usdxd", m.ContainerID()),
+		fmt.Sprintf("%s:/root/.volleyd", m.ContainerID()),
 		targetDir,
 	)
 	return cmd.Run()

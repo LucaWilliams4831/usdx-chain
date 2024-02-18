@@ -12,7 +12,7 @@ Learn how to manually upgrade your node. {synopsis}
 
 ## 1. Upgrade the Evmos version
 
-Before upgrading the Evmos version. Stop your instance of `usdxd` using `Ctrl/Cmd+C`.
+Before upgrading the Evmos version. Stop your instance of `volleyd` using `Ctrl/Cmd+C`.
 
 Next, upgrade the software to the desired release version. Check the Evmos [releases page](https://github.com/evmos/evmos/releases) for details on each release.
 
@@ -33,10 +33,10 @@ If you have issues at this step, please check that you have the latest stable ve
 Verify that you've successfully installed Evmos on your system by using the `version` command:
 
 ```bash
-$ usdxd version --long
+$ volleyd version --long
 
 name: evmos
-server_name: usdxd
+server_name: volleyd
 version: 3.0.0
 commit: fe9df43332800a74a163c014c69e62765d8206e3
 build_tags: netgo,ledger
@@ -45,7 +45,7 @@ go: go version go1.19 darwin/amd64
 ```
 
 ::: tip
-If the software version does not match, then please check your `$PATH` to ensure the correct `usdxd` is running.
+If the software version does not match, then please check your `$PATH` to ensure the correct `volleyd` is running.
 :::
 
 ## 2. Replace Genesis file
@@ -60,7 +60,7 @@ You can find the latest `genesis.json` file for mainnet or testnet in the follow
 Save the new genesis as `new_genesis.json`. Then, replace the old `genesis.json` located in your `config/` directory with `new_genesis.json`:
 
 ```bash
-cd $HOME/.usdxd/config
+cd $HOME/.volleyd/config
 cp -f genesis.json new_genesis.json
 mv new_genesis.json genesis.json
 ```
@@ -69,7 +69,7 @@ mv new_genesis.json genesis.json
 We recommend using `sha256sum` to check the hash of the downloaded genesis against the expected genesis.
 
 ```bash
-cd ~/.usdxd/config
+cd ~/.volleyd/config
 echo "<expected_hash>  genesis.json" | sha256sum -c
 ```
 
@@ -84,8 +84,8 @@ Check [here](./upgrades.md) if the version you are upgrading require a data rese
 Remove the outdated files and reset the data:
 
 ```bash
-rm $HOME/.usdxd/config/addrbook.json
-usdxd tendermint unsafe-reset-all --home $HOME/.usdxd
+rm $HOME/.volleyd/config/addrbook.json
+volleyd tendermint unsafe-reset-all --home $HOME/.volleyd
 ```
 
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before,
@@ -103,5 +103,5 @@ Make sure that every node has a unique `priv_validator.json`. **DO NOT** copy th
 To restart your node once the new genesis has been updated, use the `start` command:
 
 ```bash
-usdxd start
+volleyd start
 ```

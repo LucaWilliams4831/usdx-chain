@@ -8,7 +8,7 @@ A user can query the Evmos `x/vesting` module using the CLI, gRPC, or REST.
 
 ## CLI
 
-Find below a list of `usdxd` commands added with the `x/vesting` module. You can obtain the full list by using the `usdxd -h` command.
+Find below a list of `volleyd` commands added with the `x/vesting` module. You can obtain the full list by using the `volleyd -h` command.
 
 ### Genesis
 
@@ -22,7 +22,7 @@ If both files are given, they must describe schedules for the same total amount.
 If one file is omitted, it will default to a schedule that immediately unlocks or vests the entire amount. The described amount of coins will be transferred from the --from address to the vesting account. Unvested coins may be "clawed back" by the funder with the clawback command. Coins may not be transferred out of the account if they are locked or unvested. Only vested coins may be staked. For an example of how to set this see [this link](https://github.com/evmos/evmos/pull/303).
 
 ```go
-usdxd add-genesis-account ADDRESS_OR_KEY_NAME COIN... [flags]
+volleyd add-genesis-account ADDRESS_OR_KEY_NAME COIN... [flags]
 ```
 
 ### Queries
@@ -34,7 +34,7 @@ The `query` commands allow users to query `vesting` account state.
 Allows users to query the locked, unvested and vested tokens for a given vesting account
 
 ```go
-usdxd query vesting balances ADDRESS [flags]
+volleyd query vesting balances ADDRESS [flags]
 ```
 
 ### Transactions
@@ -49,7 +49,7 @@ If both files are given, they must describe schedules for the same total amount.
 If one file is omitted, it will default to a schedule that immediately unlocks or vests the entire amount. The described amount of coins will be transferred from the --from address to the vesting account. Unvested coins may be "clawed back" by the funder with the clawback command. Coins may not be transferred out of the account if they are locked or unvested. Only vested coins may be staked. For an example of how to set this see [this link](https://github.com/evmos/evmos/pull/303).
 
 ```go
-usdxd tx vesting create-clawback-vesting-account TO_ADDRESS [flags]
+volleyd tx vesting create-clawback-vesting-account TO_ADDRESS [flags]
 ```
 
 **`clawback`**
@@ -57,7 +57,7 @@ usdxd tx vesting create-clawback-vesting-account TO_ADDRESS [flags]
 Allows users to create a transfer unvested amount out of a ClawbackVestingAccount. Must be requested by the original funder address (--from) and may provide a destination address (--dest), otherwise the coins return to the funder. Delegated or undelegating staking tokens will be transferred in the delegated (undelegating) state. The recipient is vulnerable to slashing, and must act to unbond the tokens if desired.
 
 ```go
-usdxd tx vesting clawback ADDRESS [flags]
+volleyd tx vesting clawback ADDRESS [flags]
 ```
 
 **`update-vesting-funder`**
@@ -68,7 +68,7 @@ Allows users to update the funder of an existent `ClawbackVestingAccount`. Must 
 2. the vesting account address
 
 ```go
-usdxd tx vesting update-vesting-funder VESTING_ACCOUNT_ADDRESS NEW_FUNDER_ADDRESS --from=FUNDER_ADDRESS [flags]
+volleyd tx vesting update-vesting-funder VESTING_ACCOUNT_ADDRESS NEW_FUNDER_ADDRESS --from=FUNDER_ADDRESS [flags]
 ```
 
 ## gRPC

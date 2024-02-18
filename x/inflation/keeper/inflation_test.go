@@ -129,7 +129,7 @@ func (suite *KeeperTestSuite) TestGetCirculatingSupplyAndInflationRate() {
 
 			// Mint coins to increase supply
 			coin := sdk.NewCoin(types.DefaultInflationDenom, sdk.TokensFromConsensusPower(tc.bankSupply, ethermint.PowerReduction))
-			decCoin := sdk.NewDecCoinFrousdx(coin)
+			decCoin := sdk.NewDecCoinFrovolley(coin)
 			err := suite.app.InflationKeeper.MintCoins(suite.ctx, coin)
 			suite.Require().NoError(err)
 

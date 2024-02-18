@@ -40,7 +40,7 @@ func (m *Manager) CreateExec(cmd []string, containerID string) (string, error) {
 // CreateSubmitProposalExec creates a gov tx to submit an upgrade proposal to the chain
 func (m *Manager) CreateSubmitProposalExec(targetVersion, chainID string, upgradeHeight uint) (string, error) {
 	cmd := []string{
-		"usdxd",
+		"volleyd",
 		"tx", "gov", "submit-proposal",
 		"software-upgrade", targetVersion,
 		"--title=\"TEST\"",
@@ -61,7 +61,7 @@ func (m *Manager) CreateSubmitProposalExec(targetVersion, chainID string, upgrad
 // CreateDepositProposalExec creates a gov tx to deposit for the current upgrade proposal
 func (m *Manager) CreateDepositProposalExec(chainID string) (string, error) {
 	cmd := []string{
-		"usdxd",
+		"volleyd",
 		"tx",
 		"gov",
 		"deposit",
@@ -82,7 +82,7 @@ func (m *Manager) CreateDepositProposalExec(chainID string) (string, error) {
 // CreateVoteProposalExec creates gov tx to vote 'yes' on the current upgrade proposal
 func (m *Manager) CreateVoteProposalExec(chainID string) (string, error) {
 	cmd := []string{
-		"usdxd",
+		"volleyd",
 		"tx",
 		"gov",
 		"vote",

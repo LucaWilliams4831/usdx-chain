@@ -370,7 +370,7 @@ func (suite *KeeperTestSuite) TestAllocationMeters() {
 				req = &types.QueryAllocationMetersRequest{}
 
 				am := sdk.NewDecCoin(denomMint, sdk.OneInt())
-				am2 := sdk.NewDecCoin(denousdx, sdk.OneInt())
+				am2 := sdk.NewDecCoin(denovolley, sdk.OneInt())
 				suite.app.IncentivesKeeper.SetAllocationMeter(suite.ctx, am)
 				suite.app.IncentivesKeeper.SetAllocationMeter(suite.ctx, am2)
 

@@ -197,7 +197,7 @@ PEER="96557e26aabf3b23e8ff5282d03196892a7776fc@bd-evmos-mainnet-state-sync-us-01
 wget -O $HOME/genesis.json https://archive.evmos.org/mainnet/genesis.json 
 ```
 
-### Install usdxd
+### Install volleyd
 
 ```bash
 git clone https://github.com/evmos/evmos.git && \ 
@@ -210,27 +210,27 @@ make install
 Node init
 
 ```bash
-usdxd init $moniker --chain-id $CHAIN_ID
+volleyd init $moniker --chain-id $CHAIN_ID
 ```
 
-Move genesis file to .usdxd/config folder
+Move genesis file to .volleyd/config folder
 
 ```bash
-mv $HOME/genesis.json ~/.usdxd/config/
+mv $HOME/genesis.json ~/.volleyd/config/
 ```
 
 Reset the node
 
 ```bash
-usdxd tendermint unsafe-reset-all --home $HOME/.usdxd
+volleyd tendermint unsafe-reset-all --home $HOME/.volleyd
 ```
 
 Change config files (set the node name, add persistent peers, set indexer = "null")
 
 ```bash
-sed -i -e "s%^moniker *=.*%moniker = \"$moniker\"%; " $HOME/.usdxd/config/config.toml
-sed -i -e "s%^indexer *=.*%indexer = \"null\"%; " $HOME/.usdxd/config/config.toml
-sed -i -e "s%^persistent_peers *=.*%persistent_peers = \"$PEER\"%; " $HOME/.usdxd/config/config.toml
+sed -i -e "s%^moniker *=.*%moniker = \"$moniker\"%; " $HOME/.volleyd/config/config.toml
+sed -i -e "s%^indexer *=.*%indexer = \"null\"%; " $HOME/.volleyd/config/config.toml
+sed -i -e "s%^persistent_peers *=.*%persistent_peers = \"$PEER\"%; " $HOME/.volleyd/config/config.toml
 ```
 
 Set the variables for start from snapshot
@@ -264,41 +264,41 @@ s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 
-s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" ~/.usdxd/config/config.toml
+s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" ~/.volleyd/config/config.toml
 ```
 
-### Create usdxd service
+### Create volleyd service
 
 ```bash
 echo "[Unit]
-Description=usdxd Node
+Description=volleyd Node
 After=network.target
 #
 [Service]
 User=$USER
 Type=simple
-ExecStart=$(which usdxd) start
+ExecStart=$(which volleyd) start
 Restart=on-failure
 LimitNOFILE=65535
 #
 [Install]
-WantedBy=multi-user.target" > $HOME/usdxd.service; sudo mv $HOME/usdxd.service /etc/systemd/system/
+WantedBy=multi-user.target" > $HOME/volleyd.service; sudo mv $HOME/volleyd.service /etc/systemd/system/
 ```
 
 ```bash
-sudo systemctl enable usdxd.service && sudo systemctl daemon-reload
+sudo systemctl enable volleyd.service && sudo systemctl daemon-reload
 ```
 
-### Run usdxd
+### Run volleyd
 
 ```bash
-sytemctl start usdxd
+sytemctl start volleyd
 ```
 
 ### Check logs
 
 ```bash
-journalctl -u usdxd -f
+journalctl -u volleyd -f
 ```
 
 When the node is started it will then attempt to find a state sync snapshot in the network, and restore it:
@@ -329,7 +329,7 @@ The node is now state synced, having joined the network in seconds
 ### Use this command to switch off your State Sync mode, after node fully synced to avoid problems in future node restarts!
 
 ```bash
-sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.usdxd/config/config.toml
+sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.volleyd/config/config.toml
 ```
 
 :::tip

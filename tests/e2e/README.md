@@ -24,7 +24,7 @@ INITIAL_VERSION
 TARGET_VERSION
 
 # mount point for upgraded node container, to mount new node version to previous node state folder
-# by defaullt './build/.usdxd:/root/.usdxd'
+# by defaullt './build/.volleyd:/root/.volleyd'
 # more info https://docs.docker.com/engine/reference/builder/#volume
 MOUNT_PATH
 
@@ -47,7 +47,7 @@ Testing a chain upgrade is a multi-step process:
 2. Run tests
 3. The e2e test will first run an `INITIAL_VERSION` node container.
 4. The node will submit, deposit and vote for an upgrade proposal for upgrading to the `TARGET_VERSION`.
-5. After block `50` is reached, the test suite exports `/.usdxd` folder from docker container to local `build/` and than purge the container.
+5. After block `50` is reached, the test suite exports `/.volleyd` folder from docker container to local `build/` and than purge the container.
 6. Suite will mount `TARGET_VERSION` node to local `build/` dir and start the node. Node will get upgrade information from `upgrade-info.json` and will execute the upgrade.
 
 ## Structure
@@ -104,7 +104,7 @@ if target node version failed to start, caintainers `[error stream]` and `[outpu
             	            	github.com/cosmos/cosmos-sdk/baseapp.SetMinGasPrices({0xc0013563e7?, 0xc00163a3c0?})
             	            		github.com/cosmos/cosmos-sdk@v0.46.5/baseapp/options.go:29 +0xd9
             	            	main.appCreator.newApp({{{0x3399b40, 0xc000ec1db8}, {0x33ac0f8, 0xc0011314e0}, {0x33a2920, 0xc000ed2b80}, 0xc0000155f0}}, {0x3394520, 0xc001633bc0}, {0x33a5cc0, ...}, ...)
-            	            		github.com/evmos/evmos/v10/cmd/usdxd/root.go:243 +0x2ca
+            	            		github.com/evmos/evmos/v10/cmd/volleyd/root.go:243 +0x2ca
             	            	github.com/evmos/ethermint/server.startInProcess(_, {{0x0, 0x0, 0x0}, {0x33b7490, 0xc001784c30}, 0x0, {0x7fff50b37f3d, 0xc}, {0x33ac0f8, ...}, ...}, ...)
             	            		github.com/evmos/ethermint@v0.20.0-rc2/server/start.go:304 +0x9c5
             	            	github.com/evmos/ethermint/server.StartCmd.func2(0xc001620600?, {0xc001745bd0?, 0x0?, 0x1?})
@@ -120,7 +120,7 @@ if target node version failed to start, caintainers `[error stream]` and `[outpu
             	            	github.com/cosmos/cosmos-sdk/server/cmd.Execute(0x2170d50?, {0x26d961f, 0x6}, {0xc00112c490, 0xd})
             	            		github.com/cosmos/cosmos-sdk@v0.46.5/server/cmd/execute.go:36 +0x20f
             	            	main.main()
-            	            		github.com/evmos/evmos/v10/cmd/usdxd/main.go:20 +0x45
+            	            		github.com/evmos/evmos/v10/cmd/volleyd/main.go:20 +0x45
 
 
             	            	[output stream]:

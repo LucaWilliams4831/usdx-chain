@@ -54,7 +54,7 @@ func (k Keeper) OnAcknowledgementPacket(
 	}
 
 	// claim IBC transfer action
-	_, err = k.ClaiusdxsForAction(ctx, sender, claimsRecord, types.ActionIBCTransfer, params)
+	_, err = k.ClaivolleysForAction(ctx, sender, claimsRecord, types.ActionIBCTransfer, params)
 	if err != nil {
 		return err
 	}
@@ -177,7 +177,7 @@ func (k Keeper) OnRecvPacket(
 		// -> migrate the sender record to the recipient address and claim IBC action
 
 		claimedAmt := sdk.ZeroInt() // nolint
-		claimedAmt, err = k.ClaiusdxsForAction(ctx, recipient, senderClaimsRecord, types.ActionIBCTransfer, params)
+		claimedAmt, err = k.ClaivolleysForAction(ctx, recipient, senderClaimsRecord, types.ActionIBCTransfer, params)
 
 		// if the transfer fails or the claimable amount is 0 (eg: action already
 		// completed), don't perform a state migration
@@ -186,7 +186,7 @@ func (k Keeper) OnRecvPacket(
 		}
 
 		// delete the claims record from sender
-		// NOTE: claim record is migrated to the recipient in ClaiusdxsForAction
+		// NOTE: claim record is migrated to the recipient in ClaivolleysForAction
 		k.DeleteClaimsRecord(ctx, sender)
 
 		logger.Debug(
@@ -199,7 +199,7 @@ func (k Keeper) OnRecvPacket(
 	case !senderRecordFound && recipientRecordFound,
 		sameAddress && fromEVMChain && recipientRecordFound:
 		// case 3: only the recipient has a claims record -> only claim IBC transfer action
-		_, err = k.ClaiusdxsForAction(ctx, recipient, recipientClaimsRecord, types.ActionIBCTransfer, params)
+		_, err = k.ClaivolleysForAction(ctx, recipient, recipientClaimsRecord, types.ActionIBCTransfer, params)
 	case !senderRecordFound && !recipientRecordFound:
 		// case 4: neither the sender or recipient have a claims record
 		// -> perform a no-op by returning the original success acknowledgement

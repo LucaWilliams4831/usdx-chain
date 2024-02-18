@@ -21,7 +21,7 @@ JSON-RPC is provided on multiple transports. Evmos supports JSON-RPC over HTTP a
 
 Evmos supports all standard web3 JSON-RPC APIs. You can find documentation for these APIs on the [`JSON-RPC Methods`](./endpoints.md) page.
 
-Ethereum JSON-RPC APIs use a name-space system. RPC methods are grouped into several categories depending on their purpose. All method names are usdxd of the namespace, an underscore, and the actual method name within the namespace. For example, the eth_call method resides in the eth namespace.
+Ethereum JSON-RPC APIs use a name-space system. RPC methods are grouped into several categories depending on their purpose. All method names are volleyd of the namespace, an underscore, and the actual method name within the namespace. For example, the eth_call method resides in the eth namespace.
 
 Access to RPC methods can be enabled on a per-namespace basis. Find documentation for individual namespaces in the [Namespaces](./namespaces.md) page.
 

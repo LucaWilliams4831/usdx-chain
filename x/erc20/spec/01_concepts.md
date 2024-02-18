@@ -22,7 +22,7 @@ When a proposal is initiated for an existing native Cosmos Coin, the erc20 modul
 
 ### Registration of an ERC20 token
 
-A proposal for an existing (i.e already deployed) ERC20 contract can be initiated too. In this case, the ERC20 maintains the original owner of the contract and uses an escrow & mint / burn & unescrow mechanism similar to the one defined by the [ICS20 - Fungible Token Transfer](https://github.com/cosmos/ibc/blob/master/spec/app/ics-020-fungible-token-transfer) specification. The token pair is usdxd of the original ERC20 token and a corresponding native Cosmos coin denomination.
+A proposal for an existing (i.e already deployed) ERC20 contract can be initiated too. In this case, the ERC20 maintains the original owner of the contract and uses an escrow & mint / burn & unescrow mechanism similar to the one defined by the [ICS20 - Fungible Token Transfer](https://github.com/cosmos/ibc/blob/master/spec/app/ics-020-fungible-token-transfer) specification. The token pair is volleyd of the original ERC20 token and a corresponding native Cosmos coin denomination.
 
 ### Token details and metadata
 

@@ -48,7 +48,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"valid",
 			NewParams(
-				"usdx",
+				"volley",
 				validExponentialCalculation,
 				validInflationDistribution,
 				true,
@@ -58,7 +58,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"valid param literal",
 			Params{
-				MintDenom:              "usdx",
+				MintDenom:              "volley",
 				ExponentialCalculation: validExponentialCalculation,
 				InflationDistribution:  validInflationDistribution,
 				EnableInflation:        true,
@@ -68,7 +68,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - denom",
 			NewParams(
-				"/usdx",
+				"/volley",
 				validExponentialCalculation,
 				validInflationDistribution,
 				true,
@@ -88,7 +88,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - negative A",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(-1)),
 					R:             sdk.NewDecWithPrec(5, 1),
@@ -104,7 +104,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - R greater than 1",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(300_000_000)),
 					R:             sdk.NewDecWithPrec(5, 0),
@@ -120,7 +120,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - negative R",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(300_000_000)),
 					R:             sdk.NewDecWithPrec(-5, 1),
@@ -136,7 +136,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - negative C",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(300_000_000)),
 					R:             sdk.NewDecWithPrec(5, 1),
@@ -152,7 +152,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - BondingTarget greater than 1",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(300_000_000)),
 					R:             sdk.NewDecWithPrec(5, 1),
@@ -168,7 +168,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - negative BondingTarget",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(300_000_000)),
 					R:             sdk.NewDecWithPrec(5, 1),
@@ -184,7 +184,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - exponential calculation - negative max Variance",
 			Params{
-				MintDenom: "usdx",
+				MintDenom: "volley",
 				ExponentialCalculation: ExponentialCalculation{
 					A:             sdk.NewDec(int64(300_000_000)),
 					R:             sdk.NewDecWithPrec(5, 1),
@@ -200,7 +200,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - inflation distribution - negative staking rewards",
 			Params{
-				MintDenom:              "usdx",
+				MintDenom:              "volley",
 				ExponentialCalculation: validExponentialCalculation,
 				InflationDistribution: InflationDistribution{
 					StakingRewards:  sdk.OneDec().Neg(),
@@ -214,7 +214,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - inflation distribution - negative usage incentives",
 			Params{
-				MintDenom:              "usdx",
+				MintDenom:              "volley",
 				ExponentialCalculation: validExponentialCalculation,
 				InflationDistribution: InflationDistribution{
 					StakingRewards:  sdk.NewDecWithPrec(533334, 6),
@@ -228,7 +228,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - inflation distribution - negative community pool rewards",
 			Params{
-				MintDenom:              "usdx",
+				MintDenom:              "volley",
 				ExponentialCalculation: validExponentialCalculation,
 				InflationDistribution: InflationDistribution{
 					StakingRewards:  sdk.NewDecWithPrec(533334, 6),
@@ -242,7 +242,7 @@ func (suite *ParamsTestSuite) TestParamsValidate() {
 		{
 			"invalid - inflation distribution - total distribution ratio unequal 1",
 			Params{
-				MintDenom:              "usdx",
+				MintDenom:              "volley",
 				ExponentialCalculation: validExponentialCalculation,
 				InflationDistribution: InflationDistribution{
 					StakingRewards:  sdk.NewDecWithPrec(533333, 6),

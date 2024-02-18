@@ -17,32 +17,32 @@ set LOGLEVEL="info"
 # to trace evm
 #TRACE="--trace"
 set TRACE=""
-set HOME=%USERPROFILE%\.usdxd
+set HOME=%USERPROFILE%\.volleyd
 echo %HOME%
 set ETHCONFIG=%HOME%\config\config.toml
 set GENESIS=%HOME%\config\genesis.json
 set TMPGENESIS=%HOME%\config\tmp_genesis.json
 
 @echo build binary
-go build .\cmd\usdxd
+go build .\cmd\volleyd
 
 
 @echo clear home folder
 del /s /q %HOME%
 
-usdxd config keyring-backend %KEYRING%
-usdxd config chain-id %CHAINID%
+volleyd config keyring-backend %KEYRING%
+volleyd config chain-id %CHAINID%
 
-usdxd keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
+volleyd keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
 
 rem Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
-usdxd init %MONIKER% --chain-id %CHAINID% 
+volleyd init %MONIKER% --chain-id %CHAINID% 
 
-rem Change parameter token denominations to usdx
-cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"usdx\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"crisis\"][\"constant_fee\"][\"denom\"]=\"usdx\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"gov\"][\"deposit_params\"][\"min_deposit\"][0][\"denom\"]=\"usdx\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"mint\"][\"params\"][\"mint_denom\"]=\"usdx\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+rem Change parameter token denominations to volley
+cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"volley\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"crisis\"][\"constant_fee\"][\"denom\"]=\"volley\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"gov\"][\"deposit_params\"][\"min_deposit\"][0][\"denom\"]=\"volley\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"mint\"][\"params\"][\"mint_denom\"]=\"volley\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
 
 rem increase block time (?)
 cat %GENESIS% | jq ".consensus_params[\"block\"][\"time_iota_ms\"]=\"30000\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
@@ -54,18 +54,18 @@ rem setup
 sed -i "s/create_empty_blocks = true/create_empty_blocks = false/g" %ETHCONFIG%
 
 rem Allocate genesis accounts (cosmos formatted addresses)
-usdxd add-genesis-account %KEY% 100000000000000000000000000pose --keyring-backend %KEYRING%
+volleyd add-genesis-account %KEY% 100000000000000000000000000pose --keyring-backend %KEYRING%
 
 rem Sign genesis transaction
-usdxd gentx %KEY% 1000000000000000000000pose --keyring-backend %KEYRING% --chain-id %CHAINID%
+volleyd gentx %KEY% 1000000000000000000000pose --keyring-backend %KEYRING% --chain-id %CHAINID%
 
 rem Collect genesis tx
-usdxd collect-gentxs
+volleyd collect-gentxs
 
 rem Run this to ensure everything worked and that the genesis file is setup correctly
-usdxd validate-genesis
+volleyd validate-genesis
 
 
 
 rem Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-usdxd start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001pose
+volleyd start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001pose

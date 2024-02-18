@@ -62,8 +62,8 @@ For community pool spend proposals, there are five components:
 1. **Title** - the distinguishing name of the proposal, typically the way the that explorers list proposals
 2. **Description** - the body of the proposal that further describes what is being proposed and details surrounding the proposal
 3. **Recipient** - the Evmos (bech32-based) address that will receive funding from the Community Pool
-4. **Amount** - the amount of funding that the recipient will receive in atto-EVMOS (`usdx`)
-5. **Deposit** - the amount that will be contributed to the deposit (in `usdx`) from the account submitting the proposal
+4. **Amount** - the amount of funding that the recipient will receive in atto-EVMOS (`volley`)
+5. **Deposit** - the amount that will be contributed to the deposit (in `volley`) from the account submitting the proposal
 
 #### Made-Up Example
 
@@ -80,7 +80,7 @@ The `deposit` of `192000000000000000000pose` results in 192 EVMOS being used fro
   "recipient": "evmos1mx9nqk5agvlsvt2yc8259nwztmxq7zjq50mxkp",
   "amount": [
     {
-      "denom": "usdx",
+      "denom": "volley",
       "amount": "1000000000000000000"
     }
   ],
@@ -93,10 +93,10 @@ The `deposit` of `192000000000000000000pose` results in 192 EVMOS being used fro
 
 This is a governance protocol which [Flux Protocol](https://www.fluxprotocol.org/), the provider of a cross-chain oracle which provides smart contracts with access to economically secure data feeds, submitted to cover costs of the subsidizied FPO (First Party Oracle) solution which they deployed on the Evmos mainnet.
 
-Users can query the proposal details with the `usdxd` command-line interface using this command:
+Users can query the proposal details with the `volleyd` command-line interface using this command:
 
 ```bash
-`usdxd --node https://tendermint.bd.evmos.org:26657 query gov proposal 23`.
+`volleyd --node https://tendermint.bd.evmos.org:26657 query gov proposal 23`.
 ```
 
 ```json
@@ -107,7 +107,7 @@ Users can query the proposal details with the `usdxd` command-line interface usi
   "amount": [
     {
       "amount": "12900000000000000000000",
-      "denom": "usdx"
+      "denom": "volley"
     }
   ],
   "deposit": "64000000000000000000pose"
@@ -127,8 +127,8 @@ For parameter-change proposals, there are seven components:
 3. **Subspace** - the Evmos module with the parameter that is being changed
 4. **Key** - the parameter that will be changed
 5. **Value** - the value of the parameter that will be changed by the governance mechanism
-6. **Denom** - `usdx` (atto-EVMOS) will be the type of asset used as the deposit
-7. **Amount** - the amount that will be contributed to the deposit (in `usdx`) from the account submitting the proposal
+6. **Denom** - `volley` (atto-EVMOS) will be the type of asset used as the deposit
+7. **Amount** - the amount that will be contributed to the deposit (in `volley`) from the account submitting the proposal
 
 #### Real Example
 
@@ -136,10 +136,10 @@ In the example below, a network explorer listed the governance proposal by its t
 
 Not all explorers will show the proposed parameter changes that are coded into the proposal, so the delegator should verify that the description aligns with what the governance proposal is programmed to enact. If the description says that a certain parameter will be increased, it should also be programmed to do that, but it's possible that that's not the case (accidentally or otherwise).
 
-Users can query the proposal details with the usdxd command-line interface using this command:
+Users can query the proposal details with the volleyd command-line interface using this command:
 
 ```bash
-`usdxd --node https://tendermint.bd.evmos.org:26657 query gov proposal 7`.
+`volleyd --node https://tendermint.bd.evmos.org:26657 query gov proposal 7`.
 ```
 
 ```json
@@ -150,7 +150,7 @@ Users can query the proposal details with the usdxd command-line interface using
     {
       "subspace": "gov",
       "key": "depositparams",
-      "value": {"mindeposit":[{"denom":"usdx","amount":"64000000000000000000"}],
+      "value": {"mindeposit":[{"denom":"volley","amount":"64000000000000000000"}],
       "max_deposit_period":"1209600000000000"}
     }
   ],
@@ -158,18 +158,18 @@ Users can query the proposal details with the usdxd command-line interface using
 }
 ```
 
-The deposit `denom` is `usdx` and `amount` is `20100000000000000000`. Therefore, a deposit of 20.1 EVMOS will be included with this proposal. At the time, the EVMOS mainnet had a 10 EVMOS minimum deposit, so this proposal was put directly into the voting period (and subsequently passed). The minimum deposit amount is currently 192 EVMOS. There is a minimum deposit required for a proposal to enter the voting period, and anyone may contribute to this deposit within a 3-day period. If the minimum deposit isn't reached before this time, the deposit amounts will be burned.
+The deposit `denom` is `volley` and `amount` is `20100000000000000000`. Therefore, a deposit of 20.1 EVMOS will be included with this proposal. At the time, the EVMOS mainnet had a 10 EVMOS minimum deposit, so this proposal was put directly into the voting period (and subsequently passed). The minimum deposit amount is currently 192 EVMOS. There is a minimum deposit required for a proposal to enter the voting period, and anyone may contribute to this deposit within a 3-day period. If the minimum deposit isn't reached before this time, the deposit amounts will be burned.
 
 ## Sending the transaction that submits your governance proposal
 
-For information on how to use `usdxd` binary to submit an on-chain proposal through the governance module, please refer to the [quickstart](../../validators/quickstart/binary.md) documentation.
+For information on how to use `volleyd` binary to submit an on-chain proposal through the governance module, please refer to the [quickstart](../../validators/quickstart/binary.md) documentation.
 
 ### CLI
 
-This is the command format for using `usdxd` (the command-line interface) to submit your proposal on-chain:
+This is the command format for using `volleyd` (the command-line interface) to submit your proposal on-chain:
 
 ```bash
-usdxd tx gov submit-proposal \
+volleyd tx gov submit-proposal \
   --title=<title> \
   --description=<description> \
   --type="Text" \
@@ -183,7 +183,7 @@ usdxd tx gov submit-proposal \
 Use the `evmos tx gov --help` flag to get more info about the governance commands
 :::
 
-1. `usdxd` is the command-line interface client that is used to send transactions and query Evmos
+1. `volleyd` is the command-line interface client that is used to send transactions and query Evmos
 2. `tx gov submit-proposal param-change` indicates that the transaction is submitting a parameter-change proposal
 3. `--from dev0` is the account key that pays the transaction fee and deposit amount
 4. `--gas 500000` is the maximum amount of gas permitted to be used to process the transaction
@@ -197,26 +197,26 @@ Use the `evmos tx gov --help` flag to get more info about the governance command
 
 ### Verifying your transaction
 
-After posting your transaction, your command line interface (`usdxd`) will provide you with the transaction's hash, which you can either query using `usdxd` or by searching the transaction hash using [Mintscan](https://www.mintscan.io/evmos) or any block explorer.
+After posting your transaction, your command line interface (`volleyd`) will provide you with the transaction's hash, which you can either query using `volleyd` or by searching the transaction hash using [Mintscan](https://www.mintscan.io/evmos) or any block explorer.
 
 ### Depositing funds after a proposal has been submitted
 
 Sometimes a proposal is submitted without having the minimum token amount deposited yet. In these cases you would want to be able to deposit more tokens to get the proposal into the voting stage. In order to deposit tokens, you'll need to know what your proposal ID is after you've submitted your proposal. You can query all proposals by the following command:
 
 ```bash
-usdxd q gov proposals
+volleyd q gov proposals
 ```
 
 If there are a lot of proposals on the chain already, you can also filter by your own address. For the proposal above, that would be:
 
 ```bash
-usdxd q gov proposals --depositor evmos1hxv7mpztvln45eghez6evw2ypcw4vjmsmr8cdx
+volleyd q gov proposals --depositor evmos1hxv7mpztvln45eghez6evw2ypcw4vjmsmr8cdx
 ```
 
 Once you have the proposal ID, this is the command to deposit extra tokens:
 
 ```bash
-usdxd tx gov deposit <proposal-id> <deposit> --from <name>
+volleyd tx gov deposit <proposal-id> <deposit> --from <name>
 ```
 
 In our case above, the `<proposal-id>` would be 59 as queried earlier.
@@ -235,4 +235,4 @@ Submitting your proposal to the testnet increases the likelihood that you will d
 
 - you'll need testnet tokens for your proposal (ask around for a [faucet](./../../developers/testnet/faucet.md))
 - the parameters for testnet proposals are different (eg. voting period timing, deposit amount, deposit denomination)
-- the deposit denomination is in `'atevmos'` instead of `'usdx'`
+- the deposit denomination is in `'atevmos'` instead of `'volley'`

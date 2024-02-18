@@ -8,7 +8,7 @@ A user can query the `x/incentives` module using the CLI, JSON-RPC, gRPC or REST
 
 ## CLI
 
-Find below a list of `usdxd` commands added with the `x/incentives` module. You can obtain the full list by using the `usdxd -h` command.
+Find below a list of `volleyd` commands added with the `x/incentives` module. You can obtain the full list by using the `volleyd -h` command.
 
 ### Queries
 
@@ -19,7 +19,7 @@ The `query` commands allow users to query `incentives` state.
 Allows users to query all registered incentives.
 
 ```go
-usdxd query incentives incentives [flags]
+volleyd query incentives incentives [flags]
 ```
 
 **`incentive`**
@@ -27,7 +27,7 @@ usdxd query incentives incentives [flags]
 Allows users to query an incentive for a given contract.
 
 ```go
-usdxd query incentives incentive CONTRACT_ADDRESS [flags]
+volleyd query incentives incentive CONTRACT_ADDRESS [flags]
 ```
 
 **`gas-meters`**
@@ -35,7 +35,7 @@ usdxd query incentives incentive CONTRACT_ADDRESS [flags]
 Allows users to query all gas meters for a given incentive.
 
 ```bash
-usdxd query incentives gas-meters CONTRACT_ADDRESS [flags]
+volleyd query incentives gas-meters CONTRACT_ADDRESS [flags]
 ```
 
 **`gas-meter`**
@@ -43,7 +43,7 @@ usdxd query incentives gas-meters CONTRACT_ADDRESS [flags]
 Allows users to query a gas meter for a given incentive and user.
 
 ```go
-usdxd query incentives gas-meter CONTRACT_ADDRESS PARTICIPANT_ADDRESS [flags]
+volleyd query incentives gas-meter CONTRACT_ADDRESS PARTICIPANT_ADDRESS [flags]
 ```
 
 **`params`**
@@ -51,7 +51,7 @@ usdxd query incentives gas-meter CONTRACT_ADDRESS PARTICIPANT_ADDRESS [flags]
 Allows users to query incentives params.
 
 ```bash
-usdxd query incentives params [flags]
+volleyd query incentives params [flags]
 ```
 
 ### Proposals
@@ -63,7 +63,7 @@ The `tx gov submit-proposal` commands allow users to query create a proposal usi
 Allows users to submit a `RegisterIncentiveProposal`.
 
 ```bash
-usdxd tx gov submit-proposal register-incentive CONTRACT_ADDRESS ALLOCATION EPOCHS [flags]
+volleyd tx gov submit-proposal register-incentive CONTRACT_ADDRESS ALLOCATION EPOCHS [flags]
 ```
 
 **`cancel-incentive`**
@@ -71,7 +71,7 @@ usdxd tx gov submit-proposal register-incentive CONTRACT_ADDRESS ALLOCATION EPOC
 Allows users to submit a `CanelIncentiveProposal`.
 
 ```bash
-usdxd tx gov submit-proposal cancel-incentive CONTRACT_ADDRESS [flags]
+volleyd tx gov submit-proposal cancel-incentive CONTRACT_ADDRESS [flags]
 ```
 
 **`param-change`**
@@ -79,7 +79,7 @@ usdxd tx gov submit-proposal cancel-incentive CONTRACT_ADDRESS [flags]
 Allows users to submit a `ParameterChangeProposal``.
 
 ```bash
-usdxd tx gov submit-proposal param-change PROPOSAL_FILE [flags]
+volleyd tx gov submit-proposal param-change PROPOSAL_FILE [flags]
 ```
 
 ## gRPC

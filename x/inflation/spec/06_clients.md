@@ -9,8 +9,8 @@ REST.
 
 ## CLI
 
-Find below a list of `usdxd` commands added with the `x/inflation` module. You
-can obtain the full list by using the `usdxd -h` command.
+Find below a list of `volleyd` commands added with the `x/inflation` module. You
+can obtain the full list by using the `volleyd -h` command.
 
 ### Queries
 
@@ -21,7 +21,7 @@ The `query` commands allow users to query `inflation` state.
 Allows users to query the current inflation period.
 
 ```go
-usdxd query inflation period [flags]
+volleyd query inflation period [flags]
 ```
 
 **`epoch-mint-provision`**
@@ -29,7 +29,7 @@ usdxd query inflation period [flags]
 Allows users to query the current inflation epoch provisions value.
 
 ```go
-usdxd query inflation epoch-mint-provision [flags]
+volleyd query inflation epoch-mint-provision [flags]
 ```
 
 **`skipped-epochs`**
@@ -37,7 +37,7 @@ usdxd query inflation epoch-mint-provision [flags]
 Allows users to query the current number of skipped epochs.
 
 ```go
-usdxd query inflation skipped-epochs [flags]
+volleyd query inflation skipped-epochs [flags]
 ```
 
 **`total-supply`**
@@ -45,7 +45,7 @@ usdxd query inflation skipped-epochs [flags]
 Allows users to query the total supply of tokens in circulation.
 
 ```go
-usdxd query inflation total-supply [flags]
+volleyd query inflation total-supply [flags]
 ```
 
 **`inflation-rate`**
@@ -53,7 +53,7 @@ usdxd query inflation total-supply [flags]
 Allows users to query the inflation rate of the current period.
 
 ```go
-usdxd query inflation inflation-rate [flags]
+volleyd query inflation inflation-rate [flags]
 ```
 
 **`params`**
@@ -61,7 +61,7 @@ usdxd query inflation inflation-rate [flags]
 Allows users to query the current inflation parameters.
 
 ```go
-usdxd query inflation params [flags]
+volleyd query inflation params [flags]
 ```
 
 ### Proposals
@@ -74,7 +74,7 @@ using the governance module CLI:
 Allows users to submit a `ParameterChangeProposal`.
 
 ```bash
-usdxd tx gov submit-proposal param-change [proposal-file] [flags]
+volleyd tx gov submit-proposal param-change [proposal-file] [flags]
 ```
 
 ## gRPC

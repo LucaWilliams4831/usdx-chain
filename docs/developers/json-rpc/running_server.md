@@ -24,7 +24,7 @@ You must have ports 8545 and 8546 open on your firewall.
 To enable RPC server use the following flag (set to true by default).
 
 ```bash
-usdxd start --json-rpc.enable
+volleyd start --json-rpc.enable
 ```
 
 ## Defining Namespaces
@@ -114,7 +114,7 @@ The ETH Tx Indexer provides an optional indexer services for Ethereum transactio
 To enable the ETH Indexer run the following command
 
 ```bash
-usdxd start --json-rpc.enable-indexer 
+volleyd start --json-rpc.enable-indexer 
 ```
 
 ### Index Historical Transactions
@@ -122,7 +122,7 @@ usdxd start --json-rpc.enable-indexer
 If the chain had already started and you need the ETH Indexer to catch up on old transactions, you could run the `index-eth-tx` command to index historical ETH transactions.
 
 ```bash
-usdxd index-eth-tx backward
+volleyd index-eth-tx backward
 ```
 
 After the eth indexer has finished catching up, the Tendermint indexer can be disabled for JSON RPC support.
@@ -130,7 +130,7 @@ After the eth indexer has finished catching up, the Tendermint indexer can be di
 If you need to index transactions from the last indexed block to the top of the chain, you can run
 
 ```bash
-usdxd index-eth-tx forward
+volleyd index-eth-tx forward
 ```
 
 ### Eth Tx Indexer and State sync

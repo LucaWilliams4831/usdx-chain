@@ -13,7 +13,7 @@ The `x/claims` module contains the parameters described below. All parameters ca
 | Key                  | Type            | Default Value                                               |
 | -------------------- | --------------- | ----------------------------------------------------------- |
 | `EnableClaim`        | `bool`          | `true`                                                      |
-| `ClaimsDenom`        | `string`        | `"usdx"`                                                  |
+| `ClaimsDenom`        | `string`        | `"volley"`                                                  |
 | `AirdropStartTime`   | `time.Time`     | `time.Time{}` // empty                                      |
 | `DurationUntilDecay` | `time.Duration` | `2629800000000000` (nanoseconds) // 1 month                 |
 | `DurationOfDecay`    | `time.Duration` | `5259600000000000` (nanoseconds) // 2 months                |

@@ -19,7 +19,7 @@ var (
 
 	Ucomposedenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0",
-		BaseDenom: "usdx",
+		BaseDenom: "volley",
 	}
 	UevmosIbcdenom = Ucomposedenomtrace.IBCDenom()
 
@@ -31,7 +31,7 @@ var (
 
 	Acomposedenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0",
-		BaseDenom: "usdx",
+		BaseDenom: "volley",
 	}
 	poseIbcdenom = Acomposedenomtrace.IBCDenom()
 )
